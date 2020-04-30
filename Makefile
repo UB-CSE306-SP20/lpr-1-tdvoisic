@@ -1,10 +1,10 @@
 OS := $(shell uname -s)
 
-ifeq ($(OS), Darwin) 
+ifeq ($(OS), Darwin)
   CUNIT_PATH_PREFIX = /usr/local/Cellar/cunit/2.1-3/
   CUNIT_DIRECTORY = cunit
 endif
-ifeq ($(OS), Linux) 
+ifeq ($(OS), Linux)
   CUNIT_PATH_PREFIX = /util/CUnit/
   CUNIT_DIRECTORY = CUnit/
 endif
@@ -26,7 +26,8 @@ runner: runner.c program.o
 
 tests: program.o test.o
 	$(CC) -g -Wall -fprofile-arcs -ftest-coverage -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests program.o test.o -lcunit -lgcov
-	
+
 
 clean:
 	rm -rf *~ *.o program tests runner *.dSYM *.xml *.gc??
+
