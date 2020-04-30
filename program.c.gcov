@@ -1,0 +1,70 @@
+        -:    0:Source:program.c
+        -:    0:Graph:program.gcno
+        -:    0:Data:program.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <stdbool.h>
+        -:    3:#include <string.h>
+        -:    4:#include "program.h"
+        -:    5:
+        -:    6:
+function newBook called 1 returned 100% blocks executed 100%
+        1:    7:struct Book * newBook(){
+        1:    7-block  0
+        1:    8:struct Book * book = malloc(sizeof(book));
+        1:    9:return book;
+        1:    9-block  0
+unconditional  0 taken 1
+        -:   10:}
+        -:   11:
+function newRecipe called 1 returned 100% blocks executed 100%
+        1:   12:struct Recipe * newRecipe(char name[], int servings){
+        1:   12-block  0
+        1:   13:struct Recipe * rec = malloc(sizeof(rec));
+        1:   14:strcpy(rec->name, name);
+        1:   15:rec->servings = servings;
+        1:   16:return rec;
+        1:   16-block  0
+unconditional  0 taken 1
+        -:   17:}
+        -:   18:
+function newIngredient called 1 returned 100% blocks executed 100%
+        1:   19:struct Ingredient * newIngredient(char name[], int caloriesPerGram){
+        1:   19-block  0
+        1:   20:struct Ingredient * ing = malloc(sizeof(ing));
+        1:   21:strcpy(ing->name, name);
+        1:   22:ing->calBGram = caloriesPerGram;
+        1:   23:return ing;
+        1:   23-block  0
+unconditional  0 taken 1
+        -:   24:}
+        -:   25:
+function newPantry called 1 returned 100% blocks executed 100%
+        1:   26:struct Pantry * newPantry(){
+        1:   26-block  0
+        1:   27:struct Pantry * pan = malloc(sizeof(pan));
+        1:   28:return pan;
+        1:   28-block  0
+unconditional  0 taken 1
+        -:   29:}
+        -:   30:
+function addRecipe called 0 returned 0% blocks executed 0%
+    #####:   31:void addRecipe(struct Book* entry, struct Recipe* food){
+    $$$$$:   31-block  0
+        -:   32:
+    #####:   33:}
+        -:   34:
+function addIngredient called 0 returned 0% blocks executed 0%
+    #####:   35:void addIngredient(struct Recipe* food, struct Ingredient* part, int quantity){
+    $$$$$:   35-block  0
+        -:   36:
+    #####:   37:}
+        -:   38:
+function storeIngredient called 0 returned 0% blocks executed 0%
+    #####:   39:void storeIngredient(struct Pantry* store, struct Ingredient* part, int quantity){
+    $$$$$:   39-block  0
+        -:   40:
+    #####:   41:}
+        -:   42:
+        -:   43:
