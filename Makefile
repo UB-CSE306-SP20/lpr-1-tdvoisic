@@ -10,7 +10,7 @@ ifeq ($(OS), Linux)
 endif
 
 CC = gcc
-FLAGS = -g -Wall -std=c11
+FLAGS = -g -Wall -std=c11 -fprofile-arcs -ftest-coverage
 
 program.o: program.c
 	$(CC) -c $(FLAGS) program.c
@@ -25,8 +25,8 @@ runner: runner.c program.o
 	$(CC) $(FLAGS) -o runner program.o runner.c
 
 tests: program.o test.o
-	gcc -Wall -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests program.o test.o -lcunit
-
+	$(CC) -g -Wall -fprofile-arcs -ftest-coverage -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests program.o test.o -lcunit -lgcov
+	
 
 clean:
-	rm -rf *~ *.o program tests runner *.dSYM
+	rm -rf *~ *.o program tests runner *.dSYM *.xml *.gc??
