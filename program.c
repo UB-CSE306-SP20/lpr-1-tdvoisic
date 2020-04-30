@@ -29,7 +29,7 @@ return pan;
 }
 
 void addRecipe(struct Book* entry, struct Recipe* food){
-
+entry->next = food;
 }
 
 void addIngredient(struct Recipe* food, struct Ingredient* part, int quantity){
