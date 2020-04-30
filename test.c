@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "CUnit.h"
 #include "Basic.h"
 #include "program.h"
@@ -14,7 +15,10 @@ void testPan(struct Pantry * p);
 void testRecipe(char name[], int servings){
 struct Recipe * test = newRecipe(name, servings);
 int serve = test->servings;
-char title[] = test->name;
+
+char title[15];
+strcpy(title, test->name);
+printf("title: \"%s\", serve: \"%d\"...",title,serve);
 CU_ASSERT_EQUAL(serve, servings);
 CU_ASSERT_EQUAL(title, name);
 }
@@ -27,7 +31,8 @@ CU_ASSERT_EQUAL(b, test);
 void testIng(char name[], int cal){
 struct Ingredient * test = newIngredient(name, cal);
 int aCal = test->calBGram;
-char aName[] = test->name;
+char aName[15];
+strcpy(aName, test->name);
 CU_ASSERT_EQUAL(aCal, cal);
 CU_ASSERT_EQUAL(aName, name);
 }
@@ -72,8 +77,6 @@ void test7(void){
 }
 
 
-void testRecipe(struct Recipe * calc, char name[], int servings){
-}
 
 /* The main() function for setting up and running the tests.
  * Returns a CUE_SUCCESS on successful running, another
@@ -95,8 +98,8 @@ int main()
 
    /* add the tests to the suite */
    if (
-          (NULL == CU_add_test(pSuite, "test00", test00))
-	||(NULL == CU_add_test(pSuite, "test1", test1))
+        
+	(NULL == CU_add_test(pSuite, "test1", test1))
 	||(NULL == CU_add_test(pSuite, "test2", test2))
 	||(NULL == CU_add_test(pSuite, "test3", test3))
 	||(NULL == CU_add_test(pSuite, "test4", test4))

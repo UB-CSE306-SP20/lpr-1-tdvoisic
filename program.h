@@ -32,7 +32,7 @@ struct Book * newBook();
 
 struct Recipe * newRecipe(char name[], int servings);
 
-struct Ingredient * newIngredient(char name[], int caloeriesPerGram);
+struct Ingredient * newIngredient(char name[], int caloriesPerGram);
 
 struct Pantry * newPantry();
 
