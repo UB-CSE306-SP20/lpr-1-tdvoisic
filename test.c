@@ -18,9 +18,9 @@ int serve = test->servings;
 
 char title[15];
 strcpy(title, test->name);
-printf("title: \"%s\", serve: \"%d\"...",title,serve);
+printf("title: \"%s\", serve: \"%d\", name: \"%s\"...",title,serve, test->name);
 CU_ASSERT_EQUAL(serve, servings);
-CU_ASSERT_EQUAL(title, name);
+CU_ASSERT_STRING_EQUAL(title, name);
 }
 
 void testBook(struct Book * b){
@@ -34,7 +34,7 @@ int aCal = test->calBGram;
 char aName[15];
 strcpy(aName, test->name);
 CU_ASSERT_EQUAL(aCal, cal);
-CU_ASSERT_EQUAL(aName, name);
+CU_ASSERT_STRING_EQUAL(aName, name);
 }
 
 void testPan(struct Pantry * p){
