@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 
-void program1();
 
 struct Recipe{
 char name[30];
@@ -10,24 +9,24 @@ int servings;
 int quantity;
 struct Ingredient* ing;
 
-}
+};
 
 struct Book{
 struct Book* next;
-strcut Book* head;
+struct Book* head;
 struct Recipe* food;
 
-}
+};
 
 struct Ingredient{
 char name[30];
 int calBGram;
-}
+};
 
 struct Pantry{
 struct Ingredient* parts;
 int quantities;
-}
+};
 
 struct Book * newBook();
 
