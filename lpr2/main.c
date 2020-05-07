@@ -17,9 +17,11 @@ int main(int argc, char * argv[]) {
   addRecipe(b, r);
   str1 = toString(i);
   printf("Ingredient: %s\n",str1);
-
+/*
   b = newBook();
+printf("here");
   r = newRecipe("Tea, Earl Grey, hot", 1);
+printf("here");
   i = newIngredient("Water", 0);
   str2 = toString(i);
   printf("Ingredient: %s\n",str2);
@@ -29,7 +31,8 @@ int main(int argc, char * argv[]) {
   printf("Ingredient: %s\n",str2);
   addIngredient(r, i, 2);
   addRecipe(b, r);
-  return 0;
+*/  
+return 0;
 }
 
 

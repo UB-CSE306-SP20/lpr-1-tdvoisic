@@ -14,7 +14,7 @@ endif
 
 
 CC=gcc
-CFLAGS=-Wall -std=c11 -g
+CFLAGS=-Wall -std=c11 -g -pg
 EXE=main
 OBJECTS=Recipe.o Pantry.o NodeRecipe.o NodeIngredientQuantity.o Ingredient.o Book.o 
 
@@ -43,10 +43,10 @@ Recipe.o: Recipe.c Recipe.h
 	$(CC) $(CFLAGS) -c Recipe.c
 
 main: $(OBJECTS)
-	$(CC) -o $(EXE) $(OBJECTS) $(EXE).c -lm
+	$(CC) -pg -o $(EXE) $(OBJECTS) $(EXE).c -lm
 
 tests: $(OBJECTS) test.o
-        $(CC) -g -Wall -fprofile-arcs -ftest-coverage -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests $(OBJECTS) test.o -lcunit -lgcov
+	 $(CC) -g -Wall -fprofile-arcs -ftest-coverage -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests $(OBJECTS) test.o -lcunit -lgcov
 
 # PHONY targets
 
@@ -54,4 +54,10 @@ tests: $(OBJECTS) test.o
 clean:
 	rm -rf *~ $(OBJECTS) $(EXE) *.zip
 
+.PHONY: andRunPerformance
+andRunPerformance:
+	make clean
+	make main
+	./main
+	gprof main gmon.out > analyze.txt
 # End of makefile
