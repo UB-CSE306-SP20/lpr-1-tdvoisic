@@ -17,6 +17,8 @@ int main(int argc, char * argv[]) {
   addRecipe(b, r);
   str1 = toString(i);
   printf("Ingredient: %s\n",str1);
+free(r);
+free(i);
 /*
   b = newBook();
 printf("here");
